@@ -34,6 +34,7 @@ module "rds" {
   source     = "./modules/rds"
   subnet_ids = module.subnets.private_subnet_ids
   env        = var.env
+  secret_name = "rds-master-credentials"  # replace with your actual secret name
 }
 resource "aws_internet_gateway" "igw" {
   vpc_id = data.aws_vpc.existing.id
